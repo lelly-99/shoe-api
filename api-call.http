@@ -1,0 +1,29 @@
+# Get all shoes
+GET http://localhost:3007/api/shoes
+
+# Get shoes by brand
+GET http://localhost:3007/api/shoes/brand/Louis%20Vuitton
+
+# Get shoes by size
+GET http://localhost:3007/api/shoes/size/7
+
+# Get shoes by brand and size
+GET http://localhost:3007/api/shoes/brand/Louis%20Vuitton/size/7
+
+
+# Insert shoes
+POST http://localhost:3007/api/shoes
+Content-Type: application/json
+
+{
+    "brand_name": "Louis Vuitton",
+    "shoe_name": "Lock-It Mule",
+    "shoe_size": 7,
+    "stock_quantity": 25,
+    "color": "Blanc",
+    "price": 1499.99,
+    "image_url": "https://cdna.lystit.com/520/650/n/photos/24sevres/a9b8ea0b/louis-vuitton-blanc-Lock-It-Mule.jpeg",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua"
+}
+
+
