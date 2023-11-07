@@ -33,6 +33,7 @@ app.use(cors());
 
 
 //API routes
+app.get('/', api.api);
 app.get('/api/shoes', api.all_shoes);
 app.get('/api/shoes/brand/:brandname',api.shoes_by_brand);
 app.get('/api/shoes/size/:size',api.shoes_by_size);

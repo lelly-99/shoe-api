@@ -1,4 +1,14 @@
 export default function shoe_api(shoe_service_instance) {
+  async function api(req, res) {
+    try {
+      res.json(
+        "Shoe API" 
+      );
+    } catch (err) {
+      console.log("Error getting all shoes", err);
+    }
+  }
+  
   async function all_shoes(req, res) {
     try {
       let allShoes = await shoe_service_instance.get_all_shoes();
@@ -99,6 +109,7 @@ export default function shoe_api(shoe_service_instance) {
   }
 
   return {
+    api,
     all_shoes,
     shoes_by_brand,
     shoes_by_size,
