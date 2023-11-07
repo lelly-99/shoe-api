@@ -1,12 +1,8 @@
-import express from "express";
-import { engine } from "express-handlebars";
-import bodyParser from "body-parser";
-import flash from "connect-flash";
-import session from "express-session";
 import pgPromise from "pg-promise";
 import shoe_service from "./service/shoe_service.js";
 import shoe_api from "./api/shoe.js";
 import cors from "cors"
+import express from "express";
 
 
 const pgp = pgPromise();
@@ -32,24 +28,7 @@ const api = shoe_api(shoe_service_instance)
 const app = express();
 
 //middleware configuration
-app.use(
-    session({
-        secret: "shoe catalogue api",
-        resave: false,
-        saveUninitialized: true,
-    })
-);
-app.use(flash());
-app.engine("handlebars", engine());
-app.set("view engine", "handlebars");
-app.set("views", "./views");
-app.use(express.static("public"));
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
-app.use(function (req, res, next) {
-    res.locals.messages = req.flash();
-    next();
-});
+app.use(express.json());
 app.use(cors());
 
 
